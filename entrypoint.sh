@@ -71,4 +71,6 @@ fi
 
 remote="https://$INPUT_ACTOR:$INPUT_TOKEN@github.com/$OUTPUT_REPOSITORY.git"
 
+git remote set-url origin $remote
+git config --global --unset credential.helper
 git push $remote "HEAD:$INPUT_BRANCH" $force_option && exit 0
