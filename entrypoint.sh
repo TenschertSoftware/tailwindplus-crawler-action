@@ -62,7 +62,7 @@ git add .
 git commit -m "$INPUT_COMMITMESSAGE"
 
 # Push changes
-echo "Pushing changes..."
+echo "Pushing changes as $INPUT_ACTOR to $OUTPUT_REPOSITORY..."
 force_option=""
 
 if $INPUT_FORCE; then
