@@ -49,6 +49,17 @@ export EMAIL="$INPUT_EMAIL"
 export PASSWORD="$INPUT_PASSWORD"
 node /crawler/index.mjs
 
+# --- 7.5) Git-Konfiguration für den gewünschten Actor setzen ---
+echo "Configuring git for $INPUT_ACTOR..."
+cd /output
+
+# Actor-Email ermitteln (falls nicht übergeben, Standard-Format verwenden)
+ACTOR_EMAIL="${INPUT_ACTOR_EMAIL:-$INPUT_ACTOR@users.noreply.github.com}"
+
+# Git-Konfiguration setzen
+git config user.name "$INPUT_ACTOR"
+git config user.email "$ACTOR_EMAIL"
+
 # --- 8) Änderungen committen ---
 echo "Committing changes..."
 cd /output
